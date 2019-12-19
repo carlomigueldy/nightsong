@@ -16,15 +16,20 @@
 export default {
     data: () => ({
         images: [
+            { link: '/img/carousel/carousel12.png' },
+            { link: '/img/carousel/carousel10.png' },
             { link: '/img/carousel/carousel1.png' },
-            // { link: '/img/carousel/carousel2.jpg' },
             { link: '/img/carousel/carousel3.png' },
-            // { link: '/img/carousel/carousel4.png' },
-            { link: '/img/carousel/carousel5.png' },
             { link: '/img/carousel/carousel6.jpeg' },
             { link: '/img/carousel/carousel7.jpeg' },
-            { link: '/img/carousel/carousel8.jpeg' },
-            { link: '/img/carousel/carousel9.png' },
+            { link: '/img/carousel/carousel13.png' },
+            // { link: '/img/carousel/carousel2.jpg' },
+            // { link: '/img/carousel/carousel4.png' },
+            // { link: '/img/carousel/carousel5.png' },
+            // { link: '/img/carousel/carousel8.jpeg' },
+            // { link: '/img/carousel/carousel9.png' },
+            // { link: '/img/carousel/carousel11.png' },
+            // { link: '/img/carousel/carousel14.png' },
         ]
     }),
 }

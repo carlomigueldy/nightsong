@@ -12,12 +12,11 @@
           hide-details
         ></v-text-field> -->
         <v-btn 
+          text
           @click="refreshData()"
           :disabled="disable"
-          :loading="refreshing" 
-          color="primary">
+          :loading="refreshing">
           <v-icon>mdi-refresh</v-icon>
-          Refresh
         </v-btn>
       </v-card-title>
       <v-data-table
@@ -25,28 +24,30 @@
         :items="members"
         :search="search"
         item-key="id"
+        sort-by="online"
+        sort-desc="false"
       >
         <template v-slot:item.class="{ item }">
           <img :src="classAvatar(item.class)" height="35">
         </template>
+        <template v-slot:item.race="{ item }">
+          <img :src="genderRace(item.gender, item.race)" height="35">
+        </template>
         <template v-slot:item.online="{ item }">
-          <v-chip :color="item.online ? 'green lighten-1' : 'red lighten-1'">
+          <v-chip :color="item.online ? 'green lighten-1' : 'blue-grey darken-1'">
             {{ item.online ? 'Online' : 'Offline' }}
           </v-chip>
         </template>
         <template v-slot:item.professions="{ item }">
-          <ul>
-            <li v-for="(profession, index) in item.professions.professions" :key="index">
-              {{ profession.name }} ({{ profession.skill }})
-            </li>
-          </ul>
+          <span v-for="(profession, index) in item.professions.professions" :key="index">
+            {{ profession.name }} ({{ profession.skill }})
+          </span>
         </template>
         <template v-slot:item.actions="{ item }">
           <v-btn 
-            depressed 
+            text
             :loading="item.loading"
             :disabled="item.disabled"
-            color="grey darken-2" 
             @click="fetchCharacter(item.name, item.index)">
             <v-icon>mdi-eye</v-icon>
           </v-btn>
@@ -120,6 +121,12 @@ export default {
         align: 'left',
         sortable: true,
         value: 'class',
+      },
+      {
+        text: 'Race',
+        align: 'left',
+        sortable: true,
+        value: 'race',
       },
       {
         text: 'Status',
@@ -228,6 +235,7 @@ export default {
      * Returns the link of a corresponding class.
      * 
      * @param { String } class
+     * @return { String }
      */
     classAvatar(class_name) {
       switch (class_name) {
@@ -251,6 +259,44 @@ export default {
           return '/img/warlock.png'
         case 'Warrior':
           return '/img/warrior.png'
+      }
+    },
+
+    /**
+     * Evaluates the given parameter to 
+     * identify their race and gender.
+     * 
+     * @param { String } gender
+     * @param { String } race
+     * @return { String } 
+     */
+    genderRace(gender, race) {
+      if (gender === 'Male') {
+        switch (race) {
+          case 'Draenei':
+            return '/img/races/draenei_male.png'
+          case 'Dwarf':
+            return '/img/races/dwarf_male.png'
+          case 'Gnome':
+            return '/img/races/gnome_male.png'
+          case 'Human':
+            return '/img/races/human_male.png'
+          case 'Night Elf':
+            return '/img/races/nightelf_male.png'
+        } 
+      } else if (gender === 'Female') {
+        switch (race) {
+          case 'Draenei':
+            return '/img/races/draenei_female.png'
+          case 'Dwarf':
+            return '/img/races/dwarf_female.png'
+          case 'Gnome':
+            return '/img/races/gnome_female.png'
+          case 'Human':
+            return '/img/races/human_female.png'
+          case 'Night Elf':
+            return '/img/races/nightelf_female.png'
+        } 
       }
     },
 

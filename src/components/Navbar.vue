@@ -1,10 +1,15 @@
 <template>
     <v-app-bar
+        dark
         app
-        clipped-left
+        color="indigo darken-4"
         >
-        <v-toolbar-title>Nightsong Armory</v-toolbar-title>
+        <v-toolbar-title>
+            <a href="#" class="headline" style="text-decoration: none; color: white;">Nightsong Armory</a>
+        </v-toolbar-title>
         <v-spacer></v-spacer>
+
+        <v-btn href="#Table" text dark>Who's Online?</v-btn>
 
         <v-menu
             left
