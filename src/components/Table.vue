@@ -25,7 +25,7 @@
         :search="search"
         item-key="id"
         sort-by="online"
-        sort-desc="false"
+        :sort-desc="false"
       >
         <template v-slot:item.class="{ item }">
           <img :src="classAvatar(item.class)" height="35">
@@ -240,25 +240,25 @@ export default {
     classAvatar(class_name) {
       switch (class_name) {
         case 'Death Knight':
-          return '/img/death_knight.png'
+          return '/img/classes/death_knight.png'
         case 'Druid':
-          return '/img/druid.png'
+          return '/img/classes/druid.png'
         case 'Hunter':
-          return '/img/hunter.png'
+          return '/img/classes/hunter.png'
         case 'Mage':
-          return '/img/mage.png'
+          return '/img/classes/mage.png'
         case 'Paladin':
-          return '/img/paladin.png'
+          return '/img/classes/paladin.png'
         case 'Priest':
-          return '/img/priest.png'
+          return '/img/classes/priest.png'
         case 'Rogue':
-          return '/img/rogue.png'
+          return '/img/classes/rogue.png'
         case 'Shaman':
-          return '/img/shaman.png'
+          return '/img/classes/shaman.png'
         case 'Warlock':
-          return '/img/warlock.png'
+          return '/img/classes/warlock.png'
         case 'Warrior':
-          return '/img/warrior.png'
+          return '/img/classes/warrior.png'
       }
     },
 
