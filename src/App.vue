@@ -2,9 +2,6 @@
   <v-app class="app-wallpaper" style="background-image: url('/img/wallpapers/nightsong.jpg');background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
     <app-navbar />
 
-    <audio src="/music/song.mp3" loop="loop" autoplay>
-    </audio>
-
     <v-content>
       <v-container>
         <app-carousel />

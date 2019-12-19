@@ -9,6 +9,13 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
 
+        <v-btn 
+            :disabled="music" 
+            @click="playBackgroundMusic()" 
+            text 
+            dark>
+            Play Music
+        </v-btn>
         <v-btn href="#Table" text dark>Who's Online?</v-btn>
 
         <v-menu
@@ -29,3 +36,18 @@
         </v-menu>
     </v-app-bar>
 </template>
+
+<script>
+export default {
+    data: () => ({
+        music: false,
+    }),
+    methods: {
+        playBackgroundMusic() {
+            this.music = true
+            const audio = new Audio('/music/song.mp3');
+            audio.play();
+        },
+    },
+}
+</script>
