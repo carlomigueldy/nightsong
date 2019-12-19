@@ -25,7 +25,7 @@
         :search="search"
         item-key="id"
         sort-by="online"
-        :sort-desc="false"
+        :sort-desc="true"
       >
         <template v-slot:item.class="{ item }">
           <img :src="classAvatar(item.class)" height="35">
