@@ -3,13 +3,13 @@
     <app-navbar />
 
     <v-content>
+      <app-carousel />
       <v-container>
-        <app-carousel />
         <app-table id="Table" />
       </v-container>
     </v-content>
 
-    <app-footer class="m-100" />
+    <app-footer />
   </v-app>
 </template>
 
